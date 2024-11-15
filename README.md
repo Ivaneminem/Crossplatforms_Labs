@@ -7,6 +7,7 @@
 - Бондаренко Іван
 
 Для запуску лабораторної виконайте команди:
+
 Build:
 ```bash
 dotnet build Build.proj -p:Solution=Lab_1 -t:Build
