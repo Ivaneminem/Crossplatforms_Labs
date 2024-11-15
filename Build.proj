@@ -1,0 +1,37 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<!-- Загальні властивості -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <!-- Встановлення Lab_1 як проекту за замовчуванням, якщо $(Solution) не визначений -->
+    <Solution Condition="'$(Solution)' == ''">Lab_1</Solution>
+  </PropertyGroup>
+
+  <!-- Визначення основного та тестового проекту -->
+  <ItemGroup Condition="'$(Solution)' != ''">
+    <MainProjectFile Include="$(Solution)\$(Solution).csproj" />
+    <TestProjectFile Include="$(Solution).Tests\$(Solution).Tests.csproj" />
+  </ItemGroup>
+
+  <!-- Ціль для побудови проектів -->
+  <Target Name="Build">
+  <!-- Перевірка, чи існує файл основного проекту -->
+    <Error Condition="!Exists('@(MainProjectFile)')" Text="Основний проект @(MainProjectFile) не знайдено." />
+    <!-- Перевірка, чи існує файл тестового проекту -->
+    <Error Condition="!Exists('@(TestProjectFile)')" Text="Тестовий проект @(TestProjectFile) не знайдено." />
+
+    <!-- Виконання збірки -->
+    <MSBuild Projects="@(MainProjectFile);@(TestProjectFile)" Targets="Restore;Build" />
+  </Target>
+
+  <!-- Ціль для тестування проектів -->
+  <Target Name="Test" DependsOnTargets="Build">
+    <Exec Command="dotnet test @(TestProjectFile) --logger &quot;console;verbosity=detailed&quot;" />
+  </Target>
+
+  <!-- Ціль для запуску основного проекту -->
+  <Target Name="Run" DependsOnTargets="Build">
+    <Exec Command="dotnet run --project &quot;@(MainProjectFile)&quot;" />
+  </Target>
+  
+</Project>
