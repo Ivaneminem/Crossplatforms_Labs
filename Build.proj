@@ -1,35 +1,35 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-<!-- Çàãàëüí³ âëàñòèâîñò³ -->
+<!-- Ğ—Ğ°Ğ³Ğ°Ğ»ÑŒĞ½Ñ– Ğ²Ğ»Ğ°ÑÑ‚Ğ¸Ğ²Ğ¾ÑÑ‚Ñ– -->
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <!-- Âñòàíîâëåííÿ Lab_1 ÿê ïğîåêòó çà çàìîâ÷óâàííÿì, ÿêùî $(Solution) íå âèçíà÷åíèé -->
+    <!-- Ğ’ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ»ĞµĞ½Ğ½Ñ Lab_1 ÑĞº Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ñƒ Ğ·Ğ° Ğ·Ğ°Ğ¼Ğ¾Ğ²Ñ‡ÑƒĞ²Ğ°Ğ½Ğ½ÑĞ¼, ÑĞºÑ‰Ğ¾ $(Solution) Ğ½Ğµ Ğ²Ğ¸Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğ¹ -->
     <Solution Condition="'$(Solution)' == ''">Lab_1</Solution>
   </PropertyGroup>
 
-  <!-- Âèçíà÷åííÿ îñíîâíîãî òà òåñòîâîãî ïğîåêòó -->
+  <!-- Ğ’Ğ¸Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ½Ñ Ğ¾ÑĞ½Ğ¾Ğ²Ğ½Ğ¾Ğ³Ğ¾ Ñ‚Ğ° Ñ‚ĞµÑÑ‚Ğ¾Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ñƒ -->
   <ItemGroup Condition="'$(Solution)' != ''">
-    <MainProjectFile Include="$(Solution)\$(Solution).csproj" />
-    <TestProjectFile Include="$(Solution).Tests\$(Solution).Tests.csproj" />
+    <MainProjectFile Include="$(Solution)\$(Solution)\$(Solution).csproj" />
+    <TestProjectFile Include="$(Solution)\$(Solution).Tests\$(Solution).Tests.csproj" />
   </ItemGroup>
 
-  <!-- Ö³ëü äëÿ ïîáóäîâè ïğîåêò³â -->
+  <!-- Ğ¦Ñ–Ğ»ÑŒ Ğ´Ğ»Ñ Ğ¿Ğ¾Ğ±ÑƒĞ´Ğ¾Ğ²Ğ¸ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ñ–Ğ² -->
   <Target Name="Build">
-  <!-- Ïåğåâ³ğêà, ÷è ³ñíóº ôàéë îñíîâíîãî ïğîåêòó -->
-    <Error Condition="!Exists('@(MainProjectFile)')" Text="Îñíîâíèé ïğîåêò @(MainProjectFile) íå çíàéäåíî." />
-    <!-- Ïåğåâ³ğêà, ÷è ³ñíóº ôàéë òåñòîâîãî ïğîåêòó -->
-    <Error Condition="!Exists('@(TestProjectFile)')" Text="Òåñòîâèé ïğîåêò @(TestProjectFile) íå çíàéäåíî." />
+  <!-- ĞŸĞµÑ€ĞµĞ²Ñ–Ñ€ĞºĞ°, Ñ‡Ğ¸ Ñ–ÑĞ½ÑƒÑ” Ñ„Ğ°Ğ¹Ğ» Ğ¾ÑĞ½Ğ¾Ğ²Ğ½Ğ¾Ğ³Ğ¾ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ñƒ -->
+    <Error Condition="!Exists('@(MainProjectFile)')" Text="ĞÑĞ½Ğ¾Ğ²Ğ½Ğ¸Ğ¹ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚ @(MainProjectFile) Ğ½Ğµ Ğ·Ğ½Ğ°Ğ¹Ğ´ĞµĞ½Ğ¾." />
+    <!-- ĞŸĞµÑ€ĞµĞ²Ñ–Ñ€ĞºĞ°, Ñ‡Ğ¸ Ñ–ÑĞ½ÑƒÑ” Ñ„Ğ°Ğ¹Ğ» Ñ‚ĞµÑÑ‚Ğ¾Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ñƒ -->
+    <Error Condition="!Exists('@(TestProjectFile)')" Text="Ğ¢ĞµÑÑ‚Ğ¾Ğ²Ğ¸Ğ¹ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚ @(TestProjectFile) Ğ½Ğµ Ğ·Ğ½Ğ°Ğ¹Ğ´ĞµĞ½Ğ¾." />
 
-    <!-- Âèêîíàííÿ çá³ğêè -->
+    <!-- Ğ’Ğ¸ĞºĞ¾Ğ½Ğ°Ğ½Ğ½Ñ Ğ·Ğ±Ñ–Ñ€ĞºĞ¸ -->
     <MSBuild Projects="@(MainProjectFile);@(TestProjectFile)" Targets="Restore;Build" />
   </Target>
 
-  <!-- Ö³ëü äëÿ òåñòóâàííÿ ïğîåêò³â -->
+  <!-- Ğ¦Ñ–Ğ»ÑŒ Ğ´Ğ»Ñ Ñ‚ĞµÑÑ‚ÑƒĞ²Ğ°Ğ½Ğ½Ñ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ñ–Ğ² -->
   <Target Name="Test" DependsOnTargets="Build">
     <Exec Command="dotnet test @(TestProjectFile) --logger &quot;console;verbosity=detailed&quot;" />
   </Target>
 
-  <!-- Ö³ëü äëÿ çàïóñêó îñíîâíîãî ïğîåêòó -->
+  <!-- Ğ¦Ñ–Ğ»ÑŒ Ğ´Ğ»Ñ Ğ·Ğ°Ğ¿ÑƒÑĞºÑƒ Ğ¾ÑĞ½Ğ¾Ğ²Ğ½Ğ¾Ğ³Ğ¾ Ğ¿Ñ€Ğ¾ĞµĞºÑ‚Ñƒ -->
   <Target Name="Run" DependsOnTargets="Build">
     <Exec Command="dotnet run --project &quot;@(MainProjectFile)&quot;" />
   </Target>
