@@ -19,7 +19,7 @@ dotnet build
 ```
 ### Run
 ```bash
-dotnet run --project App
+dotnet run --project Lab_2
 ```
 ### Test
 ```bash
