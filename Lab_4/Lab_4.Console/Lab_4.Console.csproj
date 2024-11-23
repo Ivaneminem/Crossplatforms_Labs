@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lab_4.Library\Lab_4.Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<PackAsTool>true</PackAsTool>
+	<ToolCommandName>ibondarenko</ToolCommandName>
+	<PackageId>IBondarenko</PackageId>
+	<Version>1.0.0</Version>
+	<Authors>Ivan Bondarenko</Authors>
+	<Description>LabRunner tool for managing cross-platform lab programs</Description>
+</PropertyGroup>
+
+</Project>
