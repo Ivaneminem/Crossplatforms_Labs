@@ -19,6 +19,6 @@ dotnet --version
 cd C:\project
 
 # Run LAB4
-dotnet run --project Lab_4 -- --input Lab_1\INPUT.txt --output Lab_1\OUTPUT.txt
+dotnet run run lab1 --input Lab_1\INPUT.txt --output Lab_1\OUTPUT.txt
 
 Write-Host "Windows environment setup complete and LAB1 executed"
