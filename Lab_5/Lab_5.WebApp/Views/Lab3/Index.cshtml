@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Lab 3";
+}
+
+<h2>Lab 3: Завдання</h2>
+<p>
+    Дано матрицю A розміром N×N, заповнену невід'ємними цілими числами. Відстань між двома елементами Ai j та Ap q визначено як | i - p | + | j - q |. Потрібно замінити кожен нульовий елемент матриці найближчим ненульовим. Якщо є два або більше найближчих ненульових осередків, нуль має бути залишений.
+</p>
+<h3>Вхідні дані</h3>
+<p>У першому рядку вхідного файлу INPUT.TXT міститься натуральне число N (N ≤ 200). Потім йдуть N рядків N чисел, розділених пробілами і являють собою матрицю. Елементи матриці не перевищують значення 106.</p>
+<h3>Вихідні дані</h3>
+<p>У вихідний файл OUTPUT.TXT виведіть N рядків N чисел, розділених пробілами, - модифіковану матрицю.</p>
+<hr />
+
+<form method="post">
+    <label for="input">Input File Path:</label>
+    <input type="text" id="input" name="input" required>
+    <br>
+    <label for="output">Output File Path:</label>
+    <input type="text" id="output" name="output" required>
+    <br>
+    <button type="submit">Run</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+<h3>Output:</h3>
+<pre>@ViewBag.Result</pre>
+}
